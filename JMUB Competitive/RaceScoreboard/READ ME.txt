@@ -1,0 +1,58 @@
+JMU Billiards Scoreboard Instructions
+
+This is an unlicensed application free for distribution
+Authored by Jason Klugh
+
+Application requires 64x Windows with at least Java 8
+
+After unzipping the folder
+If attempting to open the application gives a permissions error, open the files "Config.txt" and "PlayerNames.txt" and this should fix the issue.
+
+Pre-Game Interface ----------------------------------------------------------
+
+Opening the interface shows Settings for the Challenger (Left), Defender (Right), and the Match (Center).
+
+Select a player for either role, and their name will be placed in the apropriate spaces in the Scoreboard.
+If no name is selected, the player will default to "Rank #" depending on the rank field below.
+
+To add a new name to the list, select the "+Add Name+" option from the bottom of the list. The user will be
+prompted to enter a name, and only accept a first AND last name.
+
+To edit or remove a name, select the name you wish, and click the corresponding button.
+
+
+The auto-select features are based off of the Config.txt file. By default, they adhere to the JMU Billiards Constitution, however, are modifiable by following the format given in the config file. The auto-select may also be removed to make a custom game. Auto-select will base the race off the defender's rank, then the score cap and time limit off the race.
+
+The scoreboard will autosave to a file every 30 seconds. Should the scoreboard be closed, it can be reopened to the point it was at by selecting the timestamped file in the file selector opened by the Load Match Button
+
+Selecting Start will open a dialog, and copy its message to the clipboard. This message is designed to be pasted into the title and description of a youtube livestream
+
+
+Game Interface ----------------------------------------------------------------------
+
+Controls:
+Increment Defender :    q
+Decrement Defender :    Shift + Q
+Increment Challenger :  p
+Decrement Challenger :  Shift + P
+Start/Stop Timer :      Shift + S
+Toggle Break :          b
+Toggle Timer Tab :      Shift + T
+Toggle Race To Tab :    Shift + R
+Toggle Time Limit Tab : Shift + L
+Toggle Score Cap Tab :  Shift + C
+Toggle Final Screen :   Shift + F
+
+Break will alternate automatically with each frame
+Displaying the Final Screen will automatically hide all other tabs
+
+
+
+Editing Files ----------------------------------------------------------------------
+
+Change the scoreboard skin:
+A template for the scoreboard's elements are in RaceScoreboard/Scoreboard/data/Template.png. This can be used to make your own design for the scoreboard's static background. The skin can replace the file named "background0.png" and your graphic should load as the background for the scoreboard. The image must have the dimensions of 777x181 pixles if you want to prevent distortion of the image.
+The same manner of edit can be done to "ExtentionTop.png", "ExtentionBottom.png", and "backgroundf.png" with dimensions 200x60, 200x60, and 521x60 respectively.
+
+Change the autofill defaults:
+The file Config.txt holds the default autofill options for ranks and races. The top line of the file holds the format for the line by line configuration. If you want to set up time limits and score caps for races that standard ranks will not play, you can set the range for ranks from 0 to 0, that way when you select a race (with autoselect turned off) the other fields will look to the race to be auto filled.

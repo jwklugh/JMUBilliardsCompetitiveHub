@@ -1,0 +1,30 @@
+JMU Billiards Race Scoreboard Changelog:
+
+alpha 1.0
+Orignial Version
+
+alpha 1.1
+Rework for vertical display (boundry filling)
+
+alpha 1.2
+Rework for picture in picture display for more professional look
+
+alpha 1.3
+modification for look and feel
+
+alpha 1.4
+converted to standalone jar with pre-scoreboard interface for creating a match
+
+beta 1.0
+beta release
+
+beta 1.1
+renamed "Continue" button to "Load Match", and swapped positions with the "Start" button
+
+beta 1.2
+added a field for the pasting of a CSV line from a spreadsheet to allow faster setting of match options
+
+beta 1.3 - 19.11.20
+added "Auto Fill" button for more intuitive use of the auto fill feature
+added a minumum size to the window to prevent hiding of lists when shrinking the window.
+added a checkbox to select to copy the stream title/description text to the clipboard.
