@@ -51,7 +51,7 @@ public class SheetsReadWriter {
         appName = "Google Sheets API Java ReadWriter";
         jF      = JacksonFactory.getDefaultInstance();
         toksLoc = "tokens";
-        credsFP = "/credentials.json";
+        credsFP = "/client_secret_261731221588-b66gbgo9dqv84gslnpoakv3lv2ko9qou.apps.googleusercontent.com.json";
         scopes  = Collections.singletonList(SheetsScopes.SPREADSHEETS);
 
         try {
@@ -110,11 +110,6 @@ public class SheetsReadWriter {
         return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
     }
 
-    //    public static void main(String[] args) throws IOException {
-    //        SheetsReadWriter test = new SheetsReadWriter("1lbKkwI9_U29jRet7BwtUf61zoTAg6MFJClhB6J3dCO8");
-    //        test.moveRanks("Myles", "Daniel", new ArrayList<>());
-    //    }
-
     public Object getData(String pageName, String cell) throws IOException {
         ValueRange response = activeLink.get(sheetID, pageName+"!"+cell).execute();
         List<List<Object>> v = response.getValues();
@@ -129,7 +124,6 @@ public class SheetsReadWriter {
         return response.getValues();
     }
 
-    //test.setData("Sheet1","E2","=C2+D5"); // "USER_ENTERED" Makes this a formula, while "RAW" makes this a String
     public UpdateValuesResponse setData(String pageName, String cell, Object value) throws IOException {
 
         List<List<Object>> set = new ArrayList<>();

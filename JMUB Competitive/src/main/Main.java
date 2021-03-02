@@ -34,14 +34,18 @@ public class Main {
     }
 
     public static AddApproverWindow getApprovalWindow() {
-        if(approvalWindow == null)
+        if(approvalWindow == null) {
             approvalWindow = new AddApproverWindow(mainWindow.getRequested());
+            mainWindow.setEnabled(false);
+        }
         return approvalWindow;
     }
 
     public static UpcomingChallengeWindow getUpcomingWindow() {
-        if(upcomingWindow == null)
+        if(upcomingWindow == null) {
             upcomingWindow = new UpcomingChallengeWindow(mainWindow.getUpcoming());
+            mainWindow.setEnabled(false);
+        }
         return upcomingWindow;
     }
 
@@ -54,11 +58,13 @@ public class Main {
     }
 
     public static void closeApprovalWindow() {
+        mainWindow.setEnabled(true);
         approvalWindow.dispose();
         approvalWindow = null;
     }
 
     public static void closeUpcomingWindow() {
+        mainWindow.setEnabled(true);
         upcomingWindow.dispose();
         upcomingWindow = null;
         if(declareWindow != null)
@@ -68,5 +74,15 @@ public class Main {
     public static void closeDeclareWindow() {
         declareWindow.dispose();
         declareWindow = null;
+    }
+
+    public static void exitWindow(Object win) {
+        // Would use a switch, cannot with type Object
+        if(win.equals(approvalWindow))
+            closeApprovalWindow();
+        if(win.equals(declareWindow))
+            closeDeclareWindow();
+        if(win.equals(upcomingWindow))
+            closeUpcomingWindow();
     }
 }

@@ -7,6 +7,9 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +56,8 @@ public class Listener extends MouseAdapter implements ActionListener, FocusListe
                 case "MainOpenChallengesButton" :
                     io.WebLauncher.openWebpage("https://docs.google.com/spreadsheets/d/1A7TTP6QT4i-86szUjc3X5cBFFoFNAmuQCnHGhUgDpl8/edit#gid=1622813716");
                     break;
+                case "MainRefreshButton" :
+                    Main.getMainWindow().refresh();
 
 
                     // Approver ////////////////////////
@@ -161,5 +166,16 @@ public class Listener extends MouseAdapter implements ActionListener, FocusListe
     public void removeUpdate(DocumentEvent arg0) {
         Main.getApprovalWindow().checkValid();
     }
+
+
+    // Notice I very much dislike Lambda Classes as this,
+    // but I also wanted to keep this function in this class
+    // Since multiple inheritance wasn't an option, this is what I did.
+    static WindowListener exitListener = new WindowAdapter() {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            Main.exitWindow(e.getSource());
+        }
+    };
 
 }

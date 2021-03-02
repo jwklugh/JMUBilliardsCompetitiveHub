@@ -71,12 +71,15 @@ public class UpcomingChallengeWindow extends JFrame {
 
         openScoreboardButton.addActionListener(l);
         declareWinnerButton.addActionListener(l);
+
+        this.addWindowListener(Listener.exitListener);
     }
 
     private void createSettings() {
         setTitle("Upcoming Challenge");
         setMinimumSize(new Dimension(300,165));
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setVisible(true);
     }

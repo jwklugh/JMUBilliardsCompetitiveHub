@@ -66,6 +66,8 @@ public class DeclareWindow extends JFrame {
         defenderButton.addActionListener(l);
         challengerButton.addActionListener(l);
         cancelButton.addActionListener(l);
+
+        this.addWindowListener(Listener.exitListener);
     }
 
     private void createSettings() {
@@ -76,6 +78,7 @@ public class DeclareWindow extends JFrame {
         setTitle("Winner Declaration");
         setMinimumSize(new Dimension(250,150));
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setVisible(true);
     }

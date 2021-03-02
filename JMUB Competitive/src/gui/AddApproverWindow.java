@@ -79,6 +79,8 @@ public class AddApproverWindow extends JFrame {
         inputField.addActionListener(l);
         denyButton.addActionListener(l);
         confirmButton.addActionListener(l);
+
+        this.addWindowListener(Listener.exitListener);
     }
 
     private void createSettings() {
@@ -86,6 +88,7 @@ public class AddApproverWindow extends JFrame {
         setTitle("Approval");
         setMinimumSize(new Dimension(300,165));
         setResizable(false);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         setVisible(true);
     }

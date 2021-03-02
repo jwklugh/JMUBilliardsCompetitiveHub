@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -58,6 +59,8 @@ public class MainWindow extends JFrame {
     JScrollPane upcomingChallengesPane;
     JList<Challenge> upcomingChallengesList;
     DefaultListModel<Challenge> upcomingChallengesModel;
+    JPanel spreadsheetButtonPanel2;
+    JButton refreshButton;
 
     RankEditor spreadsheet;
 
@@ -103,6 +106,8 @@ public class MainWindow extends JFrame {
         upcomingChallengesModel = new DefaultListModel<>();
         upcomingChallengesList = new JList<>(upcomingChallengesModel);
         upcomingChallengesPane = new JScrollPane(upcomingChallengesList);
+        spreadsheetButtonPanel2 = new JPanel();
+        refreshButton = new JButton(new ImageIcon("./refreshIcon.png"));
     }
 
     private void createLayout() {
@@ -120,6 +125,7 @@ public class MainWindow extends JFrame {
         upcomingChallengesPanel      .setLayout(new BorderLayout());
         upcomingChallengesLabelPanel .setLayout(new BorderLayout());
         spreadsheetButtonPanel       .setLayout(new BorderLayout());
+        spreadsheetButtonPanel2      .setLayout(new BorderLayout());
 
         this.setContentPane(mainPanel);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(2,5,5,5));
@@ -138,7 +144,9 @@ public class MainWindow extends JFrame {
         spreadsheetPanel.add(spreadsheetLabelPanel,N);
         spreadsheetLabelPanel.add(spreadsheetLabel,W);
         spreadsheetPanel.add(spreadsheetButtonPanel,C);
-        spreadsheetButtonPanel.add(openMembersButton,N);
+        spreadsheetButtonPanel.add(spreadsheetButtonPanel2,N);
+        spreadsheetButtonPanel2.add(openMembersButton,C);
+        spreadsheetButtonPanel2.add(refreshButton,E);
         spreadsheetButtonPanel.add(openRankingsButton,C);
         spreadsheetButtonPanel.add(openChallengesButton,S);
         mainPanel.add(challengesPanel,C);
@@ -164,7 +172,9 @@ public class MainWindow extends JFrame {
         rankingsList.setName("MainRankingsList");
         requestedChallengesList.setName("MainRequestedChallengesList");
         upcomingChallengesList.setName("MainUpcomingChallengesList");
+        refreshButton.setName("MainRefreshButton");
 
+        refreshButton.addActionListener(l);
         openMembersButton.addActionListener(l);
         openRankingsButton.addActionListener(l);
         openChallengesButton.addActionListener(l);
@@ -184,8 +194,10 @@ public class MainWindow extends JFrame {
         rankingsPane.setPreferredSize(new Dimension(200,300));
         requestedChallengesPane.setPreferredSize(new Dimension(300,150));
         upcomingChallengesPane.setPreferredSize(new Dimension(300,150));
+        refreshButton.setPreferredSize(new Dimension(28,26));
         this.setTitle("JMU Biliards Home");
         this.setMinimumSize(new Dimension(600,400));
+        setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setVisible(true);
     }

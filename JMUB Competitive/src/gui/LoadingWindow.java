@@ -29,7 +29,8 @@ public class LoadingWindow extends JFrame {
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         setMinimumSize(new Dimension(100,60));
         setResizable(false);
-        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
 

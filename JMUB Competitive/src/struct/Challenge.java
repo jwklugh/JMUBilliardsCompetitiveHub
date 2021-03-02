@@ -23,19 +23,24 @@ public class Challenge {
     }
 
     public Challenge(List<Object> line) {
-        if(line.size() >= 7) {
-            timestamp = (String) line.get(0);
-            challenger = ((String) line.get(1)).trim();
-            cRank = Integer.parseInt((String) line.get(2));
-            defender = ((String) line.get(3)).trim();
-            dRank = Integer.parseInt((String) line.get(4));
-            date = new Date((String) line.get(5));
-            time = new Time((String) line.get(6));
-            if(line.size() > 7)
-                approver = ((String) line.get(7)).trim();
-            if(line.size() > 8)
-                winner = ((String) line.get(8)).trim();
+        try {
+            if(line.size() >= 7) {
+                timestamp = (String) line.get(0);
+                challenger = ((String) line.get(1)).trim();
+                cRank = Integer.parseInt((String) line.get(2));
+                defender = ((String) line.get(3)).trim();
+                dRank = Integer.parseInt((String) line.get(4));
+                date = new Date((String) line.get(5));
+                time = new Time((String) line.get(6));
+                if(line.size() > 7)
+                    approver = ((String) line.get(7)).trim();
+                if(line.size() > 8)
+                    winner = ((String) line.get(8)).trim();
+            }
+        } catch (NumberFormatException e) {
+            //TODO Add an Error Indicator Here
         }
+
     }
 
     @Override
